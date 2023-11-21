@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #my app
+    # my app
     'photofolio_backend_app',
-    #3rd part apps
+    # 3rd part apps
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # ADDED FOR CORS
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'photo_folio_backend.urls'
@@ -129,3 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# For development, in production specify the frontend origin
+CORS_ALLOW_ALL_ORIGINS = True
